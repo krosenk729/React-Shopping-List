@@ -3,10 +3,9 @@ import { render } from 'react-dom';
 
 import './css/style-archive.css';
 import './css/style.css';
-import ListPicker from './components/ListPicker';
-import App from './components/App';
+import Router from './components/Router';
 
 render(
-	<App />, 
+	<Router />, 
 	document.querySelector('#main')
 	);

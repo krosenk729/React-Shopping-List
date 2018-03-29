@@ -7,7 +7,7 @@ class App extends React.Component{
 
 	render(){
 		return (
-			<div className="list-maker">
+			<div className="list-maker accord">
 			<div className="menu">
 			<Header tagline="this is fun" />
 			</div>
