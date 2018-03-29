@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import ListPicker from './ListPicker';
+import StoreChooser from './StoreChooser';
 import App from './App';
 import NotFound from './NotFound';
 
 const Router = () => (
 	<BrowserRouter>
 		<Switch>
-			<Route exact path="/" component={ListPicker} />
-			<Route exact path="/lister/:listId" component={App} />
+			<Route exact path="/" component={StoreChooser} />
+			<Route exact path="/store/:storeName" component={App} />
 			<Route component={NotFound} />
 		</Switch>
 	</BrowserRouter>

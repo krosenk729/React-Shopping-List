@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import Inventory from './Inventory';
-import ShoppingList from './ShoppingList';
+import StoreItems from './StoreItems';
+import List from './List';
 
 class App extends React.Component{
 
@@ -11,8 +11,8 @@ class App extends React.Component{
 			<div className="menu">
 			<Header tagline="this is fun" />
 			</div>
-			<Inventory />
-			<ShoppingList />
+			<StoreItems />
+			<List />
 			</div>
 		)
 	}

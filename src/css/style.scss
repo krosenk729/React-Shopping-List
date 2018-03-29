@@ -1,7 +1,9 @@
 body{
-	background: url('/images/bgtexture.jpg');
+	background: url('/images/bgtexture.jpg') center;
+	background-size: cover;
 }
 
 .accord{
 	margin: 2em;
+	display: flex;
 }
