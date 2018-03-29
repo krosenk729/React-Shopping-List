@@ -1,4 +1,10 @@
-# Coffee of the Day
+# Katherine's Shopping App
+
+### Some To Dos for me 
++ "skew/unskew" button
++ 
+
+### Some Instructions 
 
 ```
 npm install

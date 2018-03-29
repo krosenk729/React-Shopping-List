@@ -3,9 +3,10 @@ import { render } from 'react-dom';
 
 import './css/style-archive.css';
 import './css/style.css';
-import StorePicker from './components/StorePicker';
+import ListPicker from './components/ListPicker';
+import App from './components/App';
 
 render(
-	<StorePicker />, 
+	<App />, 
 	document.querySelector('#main')
 	);
