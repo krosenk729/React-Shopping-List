@@ -2,7 +2,7 @@
 
 ### Some To Dos for me 
 + "skew/unskew" button
-+ 
++ Inventory -> StoreItems | Order -> List
 
 ### Some Instructions 
 

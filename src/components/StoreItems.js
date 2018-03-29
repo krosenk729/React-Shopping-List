@@ -1,14 +1,15 @@
 import React from 'react';
+import AddItemForm from './AddItemForm';
 
-class Inventory extends React.Component{
+class StoreItems extends React.Component{
 
 	render(){
 		return (
 			<div className="test">
-			Hi! This is inventory
+			<AddItemForm />
 			</div>
 		)
 	}
 }
 
-export default Inventory;
+export default StoreItems;
