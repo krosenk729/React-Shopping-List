@@ -38,7 +38,7 @@ class App extends React.Component{
 			<div className="list-maker accord">
 			<div className="all-items">
 			<Header />
-			<StoreItems loadStoreItems={this.loadStoreItems} />
+			<StoreItems loadStoreItems={this.loadStoreItems} items={this.state.items} />
 			</div>
 			<StoreList />
 			<StoreInventory addItem={this.addItem} />

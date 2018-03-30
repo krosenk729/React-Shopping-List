@@ -1,5 +1,5 @@
 import React from 'react';
-import AddItemForm from './AddItemForm';
+import Item from './Item';
 
 class StoreItems extends React.Component{
 
@@ -7,8 +7,15 @@ class StoreItems extends React.Component{
 		return (
 			<React.Fragment>
 			<button className="btn" onClick={this.props.loadStoreItems}>Load Store's Past Items</button>
-			<ul>
-				<li>This is an item</li>
+			<ul class="store-items">
+			{Object.keys(this.props.items).map(key =>(
+				<Item 
+					key={key} 
+					index={key}
+					details={this.props.items[key]}  
+					addToList={this.props.addToList}
+				/>
+				))}
 			</ul>
 			</React.Fragment>
 		)

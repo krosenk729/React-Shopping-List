@@ -6,7 +6,7 @@ const storeItems = {
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     price: 1724,
-    status: "available"
+    status: "need"
   },
 
   item2: {
@@ -15,7 +15,7 @@ const storeItems = {
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     price: 3200,
-    status: "available"
+    status: "need"
   },
 
   item3: {
@@ -24,7 +24,7 @@ const storeItems = {
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     price: 1684,
-    status: "unavailable"
+    status: "have"
   },
 
   item4: {
@@ -33,7 +33,7 @@ const storeItems = {
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     price: 1129,
-    status: "available"
+    status: "need"
   },
 
   item5: {
@@ -42,7 +42,7 @@ const storeItems = {
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     price: 4234,
-    status: "available"
+    status: "need"
   },
 
   item6: {
@@ -51,7 +51,7 @@ const storeItems = {
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     price: 1453,
-    status: "available"
+    status: "need"
   },
 
   item7: {
@@ -60,7 +60,7 @@ const storeItems = {
     desc:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
     price: 2543,
-    status: "available"
+    status: "need"
   }
 };
 

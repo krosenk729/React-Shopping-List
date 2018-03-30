@@ -29,8 +29,8 @@ class AddItemForm extends React.Component{
 			</label>
 			<label>Status
 			<select name="status" ref={this.statusRef}>
-			<option value="out">Out - stock up!</option>
-			<option value="not">Not out - pass!</option>
+			<option value="need">Need it! Buy away</option>
+			<option value="have">Have it! No need to buy</option>
 			</select>
 			</label>
 			<label>Image Source
