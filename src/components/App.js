@@ -19,6 +19,7 @@ class App extends React.Component{
 	};
 
 	/*
+	General Pattern:
 	copy state
 	update copy
 	push copy to state
@@ -33,12 +34,22 @@ class App extends React.Component{
 		this.setState({items: storeItems});
 	}
 
+	addToList = (key) => {
+		alert(key);
+		// const list = {...this.state.list};
+		// list[key] = list[key] + 1 || 1; // add or update
+		// this.setState({list});
+	}
+
 	render(){
 		return (
 			<div className="list-maker accord">
 			<div className="all-items">
 			<Header />
-			<StoreItems loadStoreItems={this.loadStoreItems} items={this.state.items} />
+			<StoreItems 
+			loadStoreItems={this.loadStoreItems} 
+			addToList={this.addToList} 
+			items={this.state.items} />
 			</div>
 			<StoreList />
 			<StoreInventory addItem={this.addItem} />

@@ -7,7 +7,7 @@ class StoreItems extends React.Component{
 		return (
 			<React.Fragment>
 			<button className="btn" onClick={this.props.loadStoreItems}>Load Store's Past Items</button>
-			<ul class="store-items">
+			<ul className="store-items">
 			{Object.keys(this.props.items).map(key =>(
 				<Item 
 					key={key} 

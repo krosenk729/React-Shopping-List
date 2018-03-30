@@ -9,7 +9,8 @@ select {
   margin-bottom: .5em; }
 
 .list-maker.accord {
-  margin: 2em;
+  width: 85%;
+  margin: 1em auto;
   display: flex; }
   .list-maker.accord > div {
     flex-basis: 30%; }
