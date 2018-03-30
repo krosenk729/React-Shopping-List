@@ -3,7 +3,25 @@ body{
 	background-size: cover;
 }
 
-.accord{
+
+// ==================================================
+// List Page
+
+.list-maker.accord{
 	margin: 2em;
 	display: flex;
+
+	& > div{
+		flex-basis: 30%;
+	}
+}
+
+// ==================================================
+// Forms
+
+label,
+input,
+select{
+	display: block;
+	margin-bottom: .5em;
 }

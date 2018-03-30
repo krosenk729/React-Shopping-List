@@ -14,7 +14,8 @@ class AddItemForm extends React.Component{
 			status: this.statusRef.current.value,
 			img: this.imgRef.current.value
 		}
-		console.log('making item');
+		this.props.addItem(item);
+		event.currentTarget.reset();
 	}
 
 	render(){

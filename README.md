@@ -2,7 +2,8 @@
 
 ### Some To Dos for me 
 + "skew/unskew" button
-+ Inventory -> StoreItems | Order -> List
++ Header & StoreItems | StoreList | StoreInventory
++ Header & fishes | Order | Inventory
 
 ### Some Instructions 
 

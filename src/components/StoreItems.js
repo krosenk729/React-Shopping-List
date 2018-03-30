@@ -5,9 +5,9 @@ class StoreItems extends React.Component{
 
 	render(){
 		return (
-			<div className="test">
-			<AddItemForm />
-			</div>
+			<ul>
+				<li>This is an item</li>
+			</ul>
 		)
 	}
 }
