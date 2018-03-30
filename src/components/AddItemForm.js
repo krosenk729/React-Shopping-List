@@ -4,7 +4,7 @@ class AddItemForm extends React.Component{
 	nameRef = React.createRef();
 	priceRef = React.createRef();
 	statusRef = React.createRef();
-	imgRef = React.createRef();
+	imageRef = React.createRef();
 
 	createItem = (event) => {
 		event.preventDefault();
@@ -12,7 +12,7 @@ class AddItemForm extends React.Component{
 			name: this.nameRef.current.value,
 			price: parseFloat(this.priceRef.current.value),
 			status: this.statusRef.current.value,
-			img: this.imgRef.current.value
+			image: this.imageRef.current.value
 		}
 		this.props.addItem(item);
 		event.currentTarget.reset();
@@ -34,7 +34,7 @@ class AddItemForm extends React.Component{
 			</select>
 			</label>
 			<label>Image Source
-			<input name="img" ref={this.imgRef} type="text" placeholder="img" />
+			<input name="image" ref={this.imageRef} type="text" placeholder="img" />
 			</label>
 			<button className="btn" type="submit">Add Item</button>
 			</form>

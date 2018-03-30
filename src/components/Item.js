@@ -3,7 +3,7 @@ import React from 'react';
 class Item extends React.Component{
 
 	render(){
-		const {image, name, price, desc, status} = this.props.details;
+		const {image, name, price, status} = this.props.details;
 		const needIt = status === 'need'
 		return (
 			<li class="item">
