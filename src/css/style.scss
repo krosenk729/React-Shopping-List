@@ -1,10 +1,33 @@
+$c-redpink: #BB3A3E;
+$c-green-d: #1C473E;
+$c-green-l: #C9DCD1;
+$c-brown-m: #DEBA97;
+$c-brown-d: #775A42;
+$c-grey-l: #E3E0E1;
+$c-grey-m: #565759;
+$c-grey-d: #29282A;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,500,900');
+
 
 // ==================================================
-// Layout
+// Layout & Resets
 
 body{
 	background: url('/images/bgtexture.jpg') center;
 	background-size: cover;
+	font-family: Roboto, sans-serif;
+	font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6, label, input, select, option, textarea{
+	font-family: Roboto, sans-serif;
+	font-weight: 300;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
 }
 
 label,
@@ -25,6 +48,10 @@ select{
 
 	& > div{
 		flex-basis: 30%;
+		background: $c-grey-l;
+		border: 8px solid $c-green-d;
+		margin: .25em;
+		padding: .25em;
 	}
 }
 
@@ -32,7 +59,7 @@ li.item{
 	list-style: none;
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: stretch;
 
 	img{
 		width: 30px;
