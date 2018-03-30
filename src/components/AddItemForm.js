@@ -21,10 +21,10 @@ class AddItemForm extends React.Component{
 	render(){
 		return (
 			<form className="add-item-form" onSubmit={this.createItem}>
-			<label>Name
+			<label>Item Name
 			<input name="name" ref={this.nameRef} type="text" placeholder="name" />
 			</label>
-			<label>Price
+			<label>What is a good price?
 			<input name="price" ref={this.priceRef} type="number" placeholder="price" />
 			</label>
 			<label>Status

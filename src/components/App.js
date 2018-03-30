@@ -19,7 +19,6 @@ class App extends React.Component{
 	};
 
 	/*
-	General Pattern:
 	copy state
 	update copy
 	push copy to state
@@ -34,11 +33,41 @@ class App extends React.Component{
 		this.setState({items: storeItems});
 	}
 
+	/*
+	copy state
+	add to list OR increment quantity of list item
+	push copy to state
+	*/
 	addToList = (key) => {
-		alert(key);
-		// const list = {...this.state.list};
-		// list[key] = list[key] + 1 || 1; // add or update
-		// this.setState({list});
+		const list = {...this.state.list};
+		list[key] = list[key] + 1 || 1; 
+		this.setState({list});
+	}
+
+	/*
+	copy state
+	decrease quantity OR remove list item
+	push copy to state
+	*/
+	decreaseList = (key) => {
+		const list = {...this.state.list};
+		if(list[key] === 1){
+			delete list[key];
+		} else {
+			list[key] = list[key] - 1;
+		}
+		this.setState({list});
+	}
+
+	/*
+	copy state
+	remove list item
+	push copy to state
+	*/
+	removeFromList = (key) => {
+		const list = {...this.state.list};
+		delete list[key];
+		this.setState({list});
 	}
 
 	render(){
@@ -51,7 +80,11 @@ class App extends React.Component{
 			addToList={this.addToList} 
 			items={this.state.items} />
 			</div>
-			<StoreList />
+			<StoreList
+			decreaseList={this.decreaseList}
+			removeFromList={this.removeFromList}
+			list={this.state.list}
+			items={this.state.items} />
 			<StoreInventory addItem={this.addItem} />
 			</div>
 		)
