@@ -9,6 +9,12 @@ class Item extends React.Component{
 			<li class="item">
 				<img src={image} alt={name} />
 				<h3>{name} : {status}</h3>
+				<button type="button" 
+				disabled={!needIt} 
+				onClick={()=> this.props.addToList(this.props.index)}
+				>
+				{needIt ? "Add to List 🛍" : "No Shopping 🙅"}
+				</button>
 			</li>
 		)
 	}
