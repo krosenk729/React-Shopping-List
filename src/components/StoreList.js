@@ -3,7 +3,7 @@ import { formatPrice } from '../helpers';
 
 class StoreList extends React.Component{
 	renderListItem = (item) => (
-		<div>Test</div>
+		<li>{item}</li>
 		)
 
 	render(){
@@ -21,7 +21,7 @@ class StoreList extends React.Component{
 			<div className="store-list">
 			<h2>Shopping List</h2>
 			<ul>
-			{itemIds.map(i => <li>{i}</li>)}
+			{itemIds.map(this.renderListItem)}
 			</ul>
 			<p>{formatPrice(total)}</p>
 			</div>
