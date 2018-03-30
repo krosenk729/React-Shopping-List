@@ -2,16 +2,25 @@ body {
   background: url("/images/bgtexture.jpg") center;
   background-size: cover; }
 
+label,
+input,
+select {
+  display: block;
+  margin-bottom: .5em; }
+
 .list-maker.accord {
   margin: 2em;
   display: flex; }
   .list-maker.accord > div {
     flex-basis: 30%; }
 
-label,
-input,
-select {
-  display: block;
-  margin-bottom: .5em; }
+li.item {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; }
+  li.item img {
+    width: 30px;
+    height: auto; }
 
 /*# sourceMappingURL=style.css.map */

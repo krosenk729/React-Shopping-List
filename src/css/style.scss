@@ -1,6 +1,17 @@
+
+// ==================================================
+// Layout
+
 body{
 	background: url('/images/bgtexture.jpg') center;
 	background-size: cover;
+}
+
+label,
+input,
+select{
+	display: block;
+	margin-bottom: .5em;
 }
 
 
@@ -16,12 +27,14 @@ body{
 	}
 }
 
-// ==================================================
-// Forms
+li.item{
+	list-style: none;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 
-label,
-input,
-select{
-	display: block;
-	margin-bottom: .5em;
+	img{
+		width: 30px;
+		height: auto;
+	}
 }
