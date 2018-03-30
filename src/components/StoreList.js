@@ -8,11 +8,11 @@ class StoreList extends React.Component{
 		const isNeeded = item.status === 'need';
 		if(!isNeeded){
 			return(
-				<li>{item ? item.name : 'Deleted item'} | shop for 0!<br />this isn't needed anymore</li>
+				<li key={i}>{item ? item.name : 'Deleted item'} | shop for 0!<br />this isn't needed anymore</li>
 				)
 		} else {
 			return(
-				<li>{item.name} | shop for {qty}</li>
+				<li key={i}>{item.name} | shop for {qty}</li>
 				)
 		}
 	}
