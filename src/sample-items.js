@@ -1,5 +1,5 @@
 // This is just some sample data so you don't have to think of your own!
-const fishes = {
+const storeItems = {
   item1: {
     name: "Celery",
     image: "/images/svg_celery.svg",
@@ -64,4 +64,4 @@ const fishes = {
   }
 };
 
-export default fishes;
+export default storeItems;
