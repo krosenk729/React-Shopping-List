@@ -1,6 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types'; 
 
 class Item extends React.Component{
+	static propTypes = {
+		details: PropTypes.shape({
+			image: PropTypes.string,
+			name: PropTypes.string,
+			price: PropTypes.number,
+			status: PropTypes.string
+		}),
+		addToList: PropTypes.func
+	}
 
 	render(){
 		const {image, name, price, status} = this.props.details;
