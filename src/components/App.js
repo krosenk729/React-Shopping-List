@@ -4,6 +4,7 @@ import StoreItems from './StoreItems';
 import StoreList from './StoreList';
 import StoreInventory from './StoreInventory';
 import storeItems from '../sample-items';
+import base from '../base';
 
 class App extends React.Component{
 	/*
@@ -17,6 +18,29 @@ class App extends React.Component{
 		items: {},
 		list: {}
 	};
+
+	/*
+	Save / sync with firebase
+	*/
+	componentDidMount(){
+		console.log(this.props.match.params.storeName);
+		this.dbRef = base.syncState(`${this.props.match.params.storeName}/items`, {
+			context: this,
+			state: 'items'
+		});
+	}
+
+	componentWillUnmount(){
+		base.removeBinding(this.dbRef);
+	}
+
+	/*
+	Store list in local storage
+	*/
+	componentDidUpdate(){
+		localStorage.setItem(this.props.match.params.storeName, JSON.stringify(this.state.list));
+		console.log('updated', this.state.list);
+	}
 
 	/*
 	copy state
