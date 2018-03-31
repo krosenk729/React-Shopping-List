@@ -23,7 +23,11 @@ class App extends React.Component{
 	Save / sync with firebase
 	*/
 	componentDidMount(){
-		console.log(this.props.match.params.storeName);
+		const localList = localStorage.getItem(this.props.match.params.storeName);
+		if(localList){
+			console.log(localList);
+			this.setState({list: JSON.parse(localList)});
+		}
 		this.dbRef = base.syncState(`${this.props.match.params.storeName}/items`, {
 			context: this,
 			state: 'items'

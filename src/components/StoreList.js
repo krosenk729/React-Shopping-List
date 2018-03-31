@@ -4,6 +4,8 @@ import { formatPrice } from '../helpers';
 class StoreList extends React.Component{
 	renderListItem = (i) => {
 		const item = this.props.items[i];
+		if(!item) return null; 
+
 		const qty = this.props.list[i];
 		const isNeeded = item.status === 'need';
 		if(!isNeeded){
