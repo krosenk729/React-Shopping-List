@@ -16,6 +16,7 @@ class StoreInventory extends React.Component{
 				key={i}
 				index={i}
 				editItem={this.props.editItem}
+				deleteItem={this.props.deleteItem}
 				 />
 			))}
 			</div>

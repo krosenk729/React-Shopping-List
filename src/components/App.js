@@ -7,7 +7,8 @@ import storeItems from '../sample-items';
 import base from '../base';
 
 class App extends React.Component{
-	/*
+	/**********************************************************
+	State Management
 	alternative syntax to
 	constructor(){ 
 		super(); 
@@ -20,7 +21,7 @@ class App extends React.Component{
 		storeName: this.props.match.params.storeName
 	};
 
-	/*
+	/**********************************************************
 	Save / sync with firebase
 	*/
 	componentDidMount(){
@@ -39,7 +40,7 @@ class App extends React.Component{
 		base.removeBinding(this.dbRef);
 	}
 
-	/*
+	/**********************************************************
 	Store list in local storage
 	*/
 	componentDidUpdate(){
@@ -47,7 +48,8 @@ class App extends React.Component{
 		console.log('updated', this.state.list);
 	}
 
-	/*
+	/**********************************************************
+	Updating Items:
 	copy state
 	update copy
 	push copy to state
@@ -58,9 +60,15 @@ class App extends React.Component{
 		this.setState({items});
 	}
 
-	editItem = (i, item) =>{
+	editItem = (key, item) =>{
 		const items = {...this.state.items};
-		items[i] = item;
+		items[key] = item;
+		this.setState({items});
+	}
+
+	deleteItem = (key) => {
+		const items = {...this.state.items};
+		items[key] = null; //must set to null instead of delete due to firebase
 		this.setState({items});
 	}
 
@@ -68,9 +76,10 @@ class App extends React.Component{
 		this.setState({items: storeItems});
 	}
 
-	/*
+	/**********************************************************
 	copy state
-	add to list OR increment quantity of list item
+	- add to list OR increment quantity of list item
+	- decrease quantity OR remove list item
 	push copy to state
 	*/
 	addToList = (key) => {
@@ -79,11 +88,6 @@ class App extends React.Component{
 		this.setState({list});
 	}
 
-	/*
-	copy state
-	decrease quantity OR remove list item
-	push copy to state
-	*/
 	decreaseList = (key) => {
 		const list = {...this.state.list};
 		if(list[key] === 1){
@@ -94,11 +98,6 @@ class App extends React.Component{
 		this.setState({list});
 	}
 
-	/*
-	copy state
-	remove list item
-	push copy to state
-	*/
 	removeFromList = (key) => {
 		const list = {...this.state.list};
 		delete list[key];
@@ -128,6 +127,7 @@ class App extends React.Component{
 			storeName={this.state.storeName}
 			addItem={this.addItem} 
 			editItem={this.editItem}
+			deleteItem={this.deleteItem}
 			items={this.state.items} />
 			
 			</div>

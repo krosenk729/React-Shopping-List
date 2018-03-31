@@ -4,7 +4,6 @@ class EditItemForm extends React.Component{
 	handleChange = (event) => {
 		const updatedItem = {...this.props.item};
 		updatedItem[event.currentTarget.name] = event.currentTarget.value;
-		console.log(updatedItem);
 		this.props.editItem(this.props.index, updatedItem);
 	}
 
@@ -26,6 +25,7 @@ class EditItemForm extends React.Component{
 			<label>Image Source
 			<input name="image" value={this.props.item.image} onChange={this.handleChange} type="text" placeholder="img" />
 			</label>
+			<button type="button" className="delete-bttn" onClick={()=>this.props.deleteItem(this.props.index)}>Remove</button>
 			</div>
 			)
 		}
