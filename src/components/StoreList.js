@@ -5,11 +5,11 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class StoreList extends React.Component{
 	static propTypes = {
-		items: PropTypes.object,
-		list: PropTypes.object,
-		addToList: PropTypes.func,
-		decreaseList: PropTypes.func,
-		removeFromList: PropTypes.func
+		items: PropTypes.object.isRequired,
+		list: PropTypes.object.isRequired,
+		addToList: PropTypes.func.isRequired,
+		decreaseList: PropTypes.func.isRequired,
+		removeFromList: PropTypes.func.isRequired
 	}
 
 	renderListItem = (i) => {

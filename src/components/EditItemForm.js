@@ -9,9 +9,9 @@ class EditItemForm extends React.Component{
 			image: PropTypes.string,
 			status: PropTypes.string
 		}),
-		index: PropTypes.string,
-		editItem: PropTypes.func,
-		deleteItem: PropTypes.func
+		index: PropTypes.string.isRequired,
+		editItem: PropTypes.func.isRequired,
+		deleteItem: PropTypes.func.isRequired
 	}
 
 	handleChange = (event) => {
