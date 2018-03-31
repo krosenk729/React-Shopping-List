@@ -16,19 +16,20 @@ class App extends React.Component{
 	*/
 	state = {
 		items: {},
-		list: {}
+		list: {},
+		storeName: this.props.match.params.storeName
 	};
 
 	/*
 	Save / sync with firebase
 	*/
 	componentDidMount(){
-		const localList = localStorage.getItem(this.props.match.params.storeName);
+		const localList = localStorage.getItem(this.state.storeName);
 		if(localList){
 			console.log(localList);
 			this.setState({list: JSON.parse(localList)});
 		}
-		this.dbRef = base.syncState(`${this.props.match.params.storeName}/items`, {
+		this.dbRef = base.syncState(`${this.state.storeName}/items`, {
 			context: this,
 			state: 'items'
 		});
@@ -42,7 +43,7 @@ class App extends React.Component{
 	Store list in local storage
 	*/
 	componentDidUpdate(){
-		localStorage.setItem(this.props.match.params.storeName, JSON.stringify(this.state.list));
+		localStorage.setItem(this.state.storeName, JSON.stringify(this.state.list));
 		console.log('updated', this.state.list);
 	}
 
@@ -113,7 +114,10 @@ class App extends React.Component{
 			removeFromList={this.removeFromList}
 			list={this.state.list}
 			items={this.state.items} />
-			<StoreInventory addItem={this.addItem} />
+			<StoreInventory 
+			storeName={this.state.storeName}
+			addItem={this.addItem}
+			items={this.state.items} />
 			</div>
 		)
 	}
