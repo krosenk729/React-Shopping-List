@@ -40,4 +40,31 @@ li.item {
     width: 30px;
     height: auto; }
 
+.store-list-item-enter {
+  transform: translateX(-120%);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  max-height: 0;
+  padding: 0; }
+  .store-list-item-enter.store-list-item-enter-active {
+    transform: translateX(0);
+    max-height: 60px;
+    padding: 2em; }
+
+.store-list-item-exit {
+  transform: translateX(0);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  max-height: 60px; }
+  .store-list-item-exit.store-list-item-exit-active {
+    transform: translateX(120%);
+    max-height: 0;
+    padding: 0; }
+
 /*# sourceMappingURL=style.css.map */
