@@ -117,6 +117,7 @@ class App extends React.Component{
 			</div>
 			
 			<StoreList
+			addToList={this.addToList}
 			decreaseList={this.decreaseList}
 			removeFromList={this.removeFromList}
 			storeName={this.state.storeName}

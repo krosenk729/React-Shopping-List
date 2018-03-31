@@ -10,11 +10,25 @@ class StoreList extends React.Component{
 		const isNeeded = item.status === 'need';
 		if(!isNeeded){
 			return(
-				<li key={i}>{item ? item.name : 'Deleted item'} | shop for 0!<br />this isn't needed anymore</li>
+				<li key={i}>
+					<h4>{item ? item.name : 'Deleted item'}</h4>
+					<p>shop for 0! </p>
+					<div>
+					<button className="del" onClick={()=> this.props.removeFromList(i)}>⛔</button>
+					</div>
+				</li>
 				)
 		} else {
 			return(
-				<li key={i}>{item.name} | shop for {qty}</li>
+				<li key={i}>
+					<h4>{item.name}</h4>
+					<p>shop for {qty}</p>
+					<div>
+					<button className="up" onClick={()=> this.props.addToList(i)}>🔺</button>
+					<button className="down" onClick={()=> this.props.decreaseList(i)}>🔻</button>
+					<button className="del" onClick={()=> this.props.removeFromList(i)}>⛔</button>
+					</div>
+				</li>
 				)
 		}
 	}
