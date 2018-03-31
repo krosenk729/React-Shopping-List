@@ -1,6 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types'; 
 
 class EditItemForm extends React.Component{
+	static propTypes = {
+		item: PropTypes.shape({
+			name: PropTypes.string,
+			price: PropTypes.number,
+			image: PropTypes.string,
+			status: PropTypes.string
+		}),
+		index: PropTypes.string,
+		editItem: PropTypes.func,
+		deleteItem: PropTypes.func
+	}
+
 	handleChange = (event) => {
 		const updatedItem = {...this.props.item};
 		updatedItem[event.currentTarget.name] = event.currentTarget.value;
@@ -31,4 +44,4 @@ class EditItemForm extends React.Component{
 		}
 	}
 
-export default EditItemForm;
+	export default EditItemForm;

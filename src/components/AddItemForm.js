@@ -1,6 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types'; 
 
 class AddItemForm extends React.Component{
+	static propTypes = {
+		addItem: PropTypes.func
+	}
+
 	nameRef = React.createRef();
 	priceRef = React.createRef();
 	statusRef = React.createRef();
