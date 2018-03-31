@@ -1,8 +1,16 @@
 import React from 'react';
 import AddItemForm from './AddItemForm';
 import EditItemForm from './EditItemForm';
+import PropTypes from 'prop-types'; 
 
 class StoreInventory extends React.Component{
+	static propTypes = {
+		storeName: PropTypes.string.isRequired,
+		items: PropTypes.object.isRequired,
+		addItem: PropTypes.func.isRequired,
+		editItem: PropTypes.func.isRequired,
+		deleteItem: PropTypes.func.isRequired
+	}
 
 	render(){
 		return (

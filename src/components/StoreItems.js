@@ -1,7 +1,12 @@
 import React from 'react';
 import Item from './Item';
+import PropTypes from 'prop-types'; 
 
 class StoreItems extends React.Component{
+	static propTypes = {
+		items: PropTypes.object.isRequired,
+		addToList: PropTypes.func.isRequired
+	}
 
 	render(){
 		return (
