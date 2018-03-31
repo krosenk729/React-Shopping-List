@@ -12,7 +12,8 @@ h1, h2, h3, h4, h5, h6, label, input, select, option, textarea {
 
 ul {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  list-style: none; }
 
 label,
 input,
@@ -32,7 +33,6 @@ select {
     padding: .25em; }
 
 li.item {
-  list-style: none;
   width: 100%;
   display: flex;
   justify-content: stretch; }

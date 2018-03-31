@@ -1,44 +1,32 @@
 import React from 'react';
-import AddItemForm from './AddItemForm';
 
 class EditItemForm extends React.Component{
-	nameRef = React.createRef();
-	priceRef = React.createRef();
-	statusRef = React.createRef();
-	imageRef = React.createRef();
-
-	createItem = (event) => {
-		event.preventDefault();
-		const item = {
-			name: this.nameRef.current.value,
-			price: parseFloat(this.priceRef.current.value),
-			status: this.statusRef.current.value,
-			image: this.imageRef.current.value
-		}
-		this.props.addItem(item);
-		event.currentTarget.reset();
+	handleChange = (event) => {
+		const updatedItem = {...this.props.item};
+		updatedItem[event.currentTarget.name] = event.currentTarget.value;
+		console.log(updatedItem);
+		this.props.editItem(this.props.index, updatedItem);
 	}
 
 	render(){
 		return (
-			<form className="add-item-form" onSubmit={this.createItem}>
+			<div className="edit-item-form">
 			<label>Item Name
-			<input name="name" ref={this.nameRef} type="text" placeholder="name" />
+			<input name="name" value={this.props.item.name} onChange={this.handleChange} type="text" placeholder="name" />
 			</label>
 			<label>What is a good price?
-			<input name="price" ref={this.priceRef} type="number" placeholder="price" />
+			<input name="price" value={this.props.item.price} onChange={this.handleChange} type="number" placeholder="price" />
 			</label>
 			<label>Status
-			<select name="status" ref={this.statusRef}>
+			<select name="status" value={this.props.item.status} onChange={this.handleChange}>
 			<option value="need">Need it! Buy away</option>
 			<option value="have">Have it! No need to buy</option>
 			</select>
 			</label>
 			<label>Image Source
-			<input name="image" ref={this.imageRef} type="text" placeholder="img" />
+			<input name="image" value={this.props.item.image} onChange={this.handleChange} type="text" placeholder="img" />
 			</label>
-			<button className="btn" type="submit">Add Item</button>
-			</form>
+			</div>
 			)
 		}
 	}

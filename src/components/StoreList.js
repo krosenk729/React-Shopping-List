@@ -32,7 +32,7 @@ class StoreList extends React.Component{
 		}, 0);
 		return (
 			<div className="store-list">
-			<h2>Shopping List</h2>
+			<h2>Shopping List for {this.props.storeName}</h2>
 			<ul>
 			{itemIds.map(this.renderListItem)}
 			</ul>

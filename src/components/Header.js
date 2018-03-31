@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Header = (props)=>(
-	<div>
-		Store Name Should Go Here?
-	</div>
+	<h1>
+		{props.storeName} Favorites
+	</h1>
 );
 
 export default Header;

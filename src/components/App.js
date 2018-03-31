@@ -58,6 +58,12 @@ class App extends React.Component{
 		this.setState({items});
 	}
 
+	editItem = (i, item) =>{
+		const items = {...this.state.items};
+		items[i] = item;
+		this.setState({items});
+	}
+
 	loadStoreItems = () => {
 		this.setState({items: storeItems});
 	}
@@ -102,22 +108,28 @@ class App extends React.Component{
 	render(){
 		return (
 			<div className="list-maker accord">
+			
 			<div className="all-items">
-			<Header />
+			<Header storeName={this.state.storeName} />
 			<StoreItems 
 			loadStoreItems={this.loadStoreItems} 
 			addToList={this.addToList} 
 			items={this.state.items} />
 			</div>
+			
 			<StoreList
 			decreaseList={this.decreaseList}
 			removeFromList={this.removeFromList}
+			storeName={this.state.storeName}
 			list={this.state.list}
 			items={this.state.items} />
+			
 			<StoreInventory 
 			storeName={this.state.storeName}
-			addItem={this.addItem}
+			addItem={this.addItem} 
+			editItem={this.editItem}
 			items={this.state.items} />
+			
 			</div>
 		)
 	}

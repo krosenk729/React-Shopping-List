@@ -34,7 +34,7 @@ class AddItemForm extends React.Component{
 			</select>
 			</label>
 			<label>Image Source
-			<input name="image" ref={this.imageRef} type="text" placeholder="img" />
+			<input name="image" ref={this.imageRef} type="text" placeholder="URL to image" />
 			</label>
 			<button className="btn" type="submit">Add Item</button>
 			</form>
