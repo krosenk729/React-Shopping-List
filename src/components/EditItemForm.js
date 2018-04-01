@@ -5,7 +5,7 @@ class EditItemForm extends React.Component{
 	static propTypes = {
 		item: PropTypes.shape({
 			name: PropTypes.string,
-			price: PropTypes.number,
+			price: PropTypes.isRequired,
 			image: PropTypes.string,
 			status: PropTypes.string
 		}),

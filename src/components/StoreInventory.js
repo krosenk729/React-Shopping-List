@@ -16,7 +16,7 @@ class StoreInventory extends React.Component{
 		return (
 			<React.Fragment>
 			<input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
-			<label for="drawer-toggle"></label>
+			<label htmlFor="drawer-toggle"></label>
 			<div className="store-items drawer" id="drawer">
 			<h4>New {this.props.storeName} item:</h4>
 			<AddItemForm addItem={this.props.addItem} />

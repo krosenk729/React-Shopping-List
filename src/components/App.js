@@ -4,7 +4,7 @@ import Header from './Header';
 import StoreItems from './StoreItems';
 import StoreList from './StoreList';
 import StoreInventory from './StoreInventory';
-import storeItems from '../sample-items';
+import essentials from '../sample-items';
 
 class App extends React.Component{
 	/**********************************************************
@@ -72,8 +72,9 @@ class App extends React.Component{
 		this.setState({items});
 	}
 
-	loadStoreItems = () => {
-		this.setState({items: storeItems});
+	loadEssentials = () => {
+		const items = { ...essentials, ...this.state.items};
+		this.setState({items});
 	}
 
 	/**********************************************************
@@ -112,7 +113,7 @@ class App extends React.Component{
 			<div className="all-items">
 			<Header storeName={this.state.storeName} />
 			<StoreItems 
-			loadStoreItems={this.loadStoreItems} 
+			loadEssentials={this.loadEssentials} 
 			addToList={this.addToList} 
 			items={this.state.items} />
 			</div>

@@ -6,7 +6,7 @@ class Item extends React.Component{
 		details: PropTypes.shape({
 			image: PropTypes.string,
 			name: PropTypes.string,
-			price: PropTypes.number,
+			price: PropTypes.isRequired,
 			status: PropTypes.string
 		}),
 		addToList: PropTypes.func
