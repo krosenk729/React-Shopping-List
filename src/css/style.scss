@@ -220,7 +220,24 @@ li.item{
 	}
 }
 
+.store-list-item{
+	margin: 2em .25em;
+	padding: 1em .25em;
+	border-top: 2px solid $col-gold-l;
 
+	&:last-of-type{
+		border-bottom: 2px solid $col-gold-l;
+	}
+}
+
+.list-button-group{
+	display: flex;
+
+	img{
+		width: 45px;
+		height: auto;
+	}
+}
 
 // ==================================================
 // Store Items Edit Panel 
@@ -253,6 +270,7 @@ li.item{
 	z-index: 2;
 
 	&:checked{
+		position: fixed;
 		bottom: auto;
 		top: 1em;
 	}

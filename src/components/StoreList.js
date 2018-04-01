@@ -29,9 +29,11 @@ class StoreList extends React.Component{
 			return(
 				<CSSTransition {...transitionOptions}>
 				<li key={i} className="store-list-item">
+				<div className="list-title-group">
 				<h4>{item ? item.name : 'Deleted item'}</h4>
-				<p>shop for 0! </p>
-				<div>
+				<p>shop for 0!</p>
+				</div>
+				<div className="list-button-group">
 				<button className="del" onClick={()=> this.props.removeFromList(i)}><span role="img" aria-label="change quantity">⛔</span></button>
 				</div>
 				</li>
@@ -41,9 +43,12 @@ class StoreList extends React.Component{
 				return(
 				<CSSTransition {...transitionOptions}>
 				<li key={i} className="store-list-item">
-				<h4>{item.name}</h4>
+				<div className="list-title-group">
+				<h3>{item.name}</h3>
 				<p>shop for {qty}</p>
-				<div>
+				</div>
+				<div className="list-button-group">
+				<div><img src={item.image} /></div>
 				<button className="up" onClick={()=> this.props.addToList(i)}><span role="img" aria-label="change quantity">🔺</span></button>
 				<button className="down" onClick={()=> this.props.decreaseList(i)}><span role="img" aria-label="change quantity">🔻</span></button>
 				<button className="del" onClick={()=> this.props.removeFromList(i)}><span role="img" aria-label="change quantity">⛔</span></button>
@@ -71,7 +76,7 @@ class StoreList extends React.Component{
 			<TransitionGroup component="ul">
 			{itemIds.map(this.renderListItem)}
 			</TransitionGroup>
-			<p>{formatPrice(total)}</p>
+			<p>Expect to pay {formatPrice(total)} ish</p>
 			</div>
 			)
 		}

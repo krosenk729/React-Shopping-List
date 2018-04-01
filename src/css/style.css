@@ -134,6 +134,19 @@ li.item {
     max-height: 0;
     padding: 0; }
 
+.store-list-item {
+  margin: 2em .25em;
+  padding: 1em .25em;
+  border-top: 2px solid #d7cfc4; }
+  .store-list-item:last-of-type {
+    border-bottom: 2px solid #d7cfc4; }
+
+.list-button-group {
+  display: flex; }
+  .list-button-group img {
+    width: 45px;
+    height: auto; }
+
 #drawer {
   padding: 1em;
   background: white;
@@ -154,6 +167,7 @@ li.item {
 #drawer-toggle {
   z-index: 2; }
   #drawer-toggle:checked {
+    position: fixed;
     bottom: auto;
     top: 1em; }
   #drawer-toggle:checked ~ label[for="drawer-toggle"] {

@@ -22,11 +22,12 @@ class StoreInventory extends React.Component{
 			<div className="store-items drawer" id="drawer">
 			
 			<h4>New {this.props.storeName} item:</h4>
-			<AddItemForm addItem={this.props.addItem} />
+			<AddItemForm className="inventory-form" addItem={this.props.addItem} />
 			
 			<h4>Edit Favorite {this.props.storeName} Items:</h4>
 			{Object.keys(this.props.items).map(i => (
 				<EditItemForm 
+				className="inventory-form"
 				item={this.props.items[i]} 
 				key={i}
 				index={i}
