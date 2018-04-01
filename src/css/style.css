@@ -1,12 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,500,900");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,500,900");
 body {
   font-family: Roboto, sans-serif;
   font-weight: 500;
-  color: #182e4b; }
+  color: #0b421a; }
 
 h1, h2, h3, h4, h5, h6, label, input, select, option, textarea {
   font-family: Roboto, sans-serif;
-  font-weight: 300; }
+  font-weight: 300;
+  line-height: 1.2;
+  padding-bottom: .25em; }
 
 ul {
   margin: 0;
@@ -19,8 +21,51 @@ select {
   display: block;
   margin-bottom: .5em; }
 
+/* button{
+	padding: .75em;
+	margin: .25em;
+	border-radius: 5px;
+	border: 4px solid $col-red-m;
+	background: $col-red-m;
+	color: $col-white;
+
+	&:hover{
+		background: $col-white;
+		color: $col-red-m;
+		@include boxshadow;
+	}
+} */
 #main {
   position: relative; }
+
+.center {
+  text-align: center; }
+
+.store-chooser {
+  width: 85%;
+  min-height: 85vh;
+  margin: 2em auto;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  .store-chooser h1 {
+    font-size: 2.6em;
+    font-weight: 100; }
+  .store-chooser .stores-list {
+    padding: .5em; }
+  .store-chooser button {
+    padding: .75em;
+    margin: .25em;
+    border-radius: 5px;
+    border: 4px solid #E02B31;
+    background: #E02B31;
+    color: #FFFFFF; }
+    .store-chooser button:hover {
+      background: #FFFFFF;
+      color: #E02B31;
+      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
 
 .list-maker.accord {
   width: 90%;
@@ -33,7 +78,7 @@ select {
   .list-maker.accord > div {
     flex-basis: 50%;
     background: #FFFFFF;
-    border: 8px solid #182e4b;
+    border: 8px solid #BB3A3E;
     margin: .25em;
     padding: .25em; }
 

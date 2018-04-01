@@ -1,16 +1,24 @@
-$c-blue-d: #182e4b;
-$c-green: #66d795;
-$c-pink: #f05538;
-$c-peach: #FFDBC7;
-$c-grey-l: #ebebeb;
-$c-grey-m: #8c8a8a;
-$c-grey-d: #242221;
-$c-white: #FFFFFF;
+$col-green-d: #0b421a;
+$col-green-m: #14675e;
+$col-green-l: #C9DCD1;
+$col-red-d: #BB3A3E;
+$col-red-m: #E02B31;
+$col-red-l: #ef9594;
+$col-gold-d: #DEBA97;
+$col-gold-l: #d7cfc4;
+$col-grey-m: #b2adaa;
+$col-grey-l: #e5e3e1;
+$col-white: #FFFFFF;
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,500,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,500,900');
 
 // ==================================================
 // Mixins
+
+@mixin boxshadow($horiz: 0, $vert: 2px, $blur: 5px, $col: rgba(0, 0, 0, 0.26)){
+	-webkit-box-shadow: $horiz $vert $blur $col;
+	box-shadow: $horiz $vert $blur $col;
+}
 
 @mixin transition($which: all, $time: 1s, $how: ease-in-out){
 	-webkit-transition: $which $time $how;
@@ -34,12 +42,14 @@ $c-white: #FFFFFF;
 body{
 	font-family: Roboto, sans-serif;
 	font-weight: 500;
-	color: $c-blue-d;
+	color: $col-green-d;
 }
 
 h1, h2, h3, h4, h5, h6, label, input, select, option, textarea{
 	font-family: Roboto, sans-serif;
 	font-weight: 300;
+	line-height: 1.2;
+	padding-bottom: .25em;
 }
 
 ul{
@@ -55,10 +65,68 @@ select{
 	margin-bottom: .5em;
 }
 
+/* button{
+	padding: .75em;
+	margin: .25em;
+	border-radius: 5px;
+	border: 4px solid $col-red-m;
+	background: $col-red-m;
+	color: $col-white;
+
+	&:hover{
+		background: $col-white;
+		color: $col-red-m;
+		@include boxshadow;
+	}
+} */
+
 #main{
 	position: relative;
 }
 
+.center{
+	text-align: center;
+}
+
+
+
+// ==================================================
+// Store Chooser Page
+
+.store-chooser{
+	width: 85%;
+	min-height: 85vh;
+	margin: 2em auto;
+	padding: 2em;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	h1{
+		font-size: 2.6em;
+		font-weight: 100;
+	}
+
+	.stores-list{
+		padding: .5em;
+	}
+
+	button{
+		padding: .75em;
+		margin: .25em;
+		border-radius: 5px;
+		border: 4px solid $col-red-m;
+		background: $col-red-m;
+		color: $col-white;
+
+		&:hover{
+			background: $col-white;
+			color: $col-red-m;
+			@include boxshadow;
+		}
+	}
+}
 
 // ==================================================
 // List Page
@@ -74,8 +142,8 @@ select{
 
 	& > div{
 		flex-basis: 50%;
-		background: $c-white;
-		border: 8px solid $c-blue-d;
+		background: $col-white;
+		border: 8px solid $col-red-d;
 		margin: .25em;
 		padding: .25em;
 	}
@@ -145,7 +213,7 @@ li.item{
 // Drawer off screen until toggled open
 #drawer{
 	padding: 1em;
-	background: opacify($c-white, .96);
+	background: opacify($col-white, .96);
 	z-index: 1;
 	top: 0;
 	

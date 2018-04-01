@@ -31,7 +31,7 @@ class StoreChooser extends React.Component{
 
 	render(){
 		return (
-			<main className="store-chooser">
+			<main className="store-chooser center">
 			{ /* comment without error */}
 			<h1>What Shopping List are You Listing?</h1>
 			
