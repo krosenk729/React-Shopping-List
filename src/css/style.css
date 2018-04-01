@@ -93,10 +93,19 @@ select {
 li.item {
   width: 100%;
   display: flex;
-  justify-content: stretch; }
+  justify-content: space-between;
+  align-items: center; }
   li.item img {
-    width: 30px;
+    width: 80%;
     height: auto; }
+  li.item .add-item-button {
+    flex-basis: 30%;
+    background: transparent;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
+  li.item .item-desc {
+    padding: .5em;
+    flex-basis: 65%; }
 
 .store-list-item-enter {
   transform: translateX(-120%);

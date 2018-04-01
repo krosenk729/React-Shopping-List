@@ -17,16 +17,17 @@ class Item extends React.Component{
 		const needIt = status === 'need'
 		return (
 			<li className="item">
-				<img src={image} alt={name} />
-				<div>
-				<h3>{name} : {status}</h3>
-				<p>Avg price: {price}</p>
 				<button type="button" 
+				className="add-item-button" 
 				disabled={!needIt} 
 				onClick={()=> this.props.addToList(this.props.index)}
 				>
-				{needIt ? "Add to List" : "No Shopping 🙅"}
+				<img src={image} alt={name} />
+				{needIt ? "Add to List" : "Already Have It 🙅"}
 				</button>
+				<div className="item-desc">
+				<h3>{name} : {status}</h3>
+				<p>Avg price: {price}</p>
 				</div>
 			</li>
 		)

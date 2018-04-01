@@ -9,7 +9,8 @@ class StoreInventory extends React.Component{
 		items: PropTypes.object.isRequired,
 		addItem: PropTypes.func.isRequired,
 		editItem: PropTypes.func.isRequired,
-		deleteItem: PropTypes.func.isRequired
+		deleteItem: PropTypes.func.isRequired,
+		loadEssentials: PropTypes.func.isRequired
 	}
 
 	render(){
@@ -17,10 +18,13 @@ class StoreInventory extends React.Component{
 			<React.Fragment>
 			<input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
 			<label htmlFor="drawer-toggle"></label>
+			
 			<div className="store-items drawer" id="drawer">
+			
 			<h4>New {this.props.storeName} item:</h4>
 			<AddItemForm addItem={this.props.addItem} />
-			<h4>Edit {this.props.storeName} items:</h4>
+			
+			<h4>Edit Favorite {this.props.storeName} Items:</h4>
 			{Object.keys(this.props.items).map(i => (
 				<EditItemForm 
 				item={this.props.items[i]} 
@@ -30,8 +34,12 @@ class StoreInventory extends React.Component{
 				deleteItem={this.props.deleteItem}
 				 />
 			))}
+			
+			<h4>Pre-Load With The Basic Essentials</h4>
+			<button className="essentials-button" onClick={this.props.loadEssentials}>Load Some Essentials</button>
+			
 			</div>
-
+			
 			</React.Fragment>
 		)
 	}

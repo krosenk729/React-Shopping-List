@@ -165,14 +165,29 @@ select{
 	
 }
 
+// ==================================================
+// List Item Layout
+
 li.item{
 	width: 100%;
 	display: flex;
-	justify-content: stretch;
+	justify-content: space-between;
+	align-items: center;
 
 	img{
-		width: 30px;
+		width: 80%;
 		height: auto;
+	}
+
+	.add-item-button{
+		flex-basis: 30%;
+		background: transparent;
+		@include boxshadow;
+	}
+
+	.item-desc{
+		padding: .5em;
+		flex-basis: 65%;
 	}
 }
 

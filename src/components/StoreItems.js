@@ -5,8 +5,7 @@ import PropTypes from 'prop-types';
 class StoreItems extends React.Component{
 	static propTypes = {
 		items: PropTypes.object.isRequired,
-		addToList: PropTypes.func.isRequired,
-		loadEssentials: PropTypes.func.isRequired
+		addToList: PropTypes.func.isRequired
 	}
 
 	render(){
@@ -22,7 +21,6 @@ class StoreItems extends React.Component{
 				/>
 				))}
 			</ul>
-			<button className="essentials-button" onClick={this.props.loadEssentials}>Load Some Essentials</button>
 			</React.Fragment>
 		)
 	}

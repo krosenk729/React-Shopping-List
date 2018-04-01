@@ -113,7 +113,6 @@ class App extends React.Component{
 			<div className="all-items">
 			<Header storeName={this.state.storeName} />
 			<StoreItems 
-			loadEssentials={this.loadEssentials} 
 			addToList={this.addToList} 
 			items={this.state.items} />
 			</div>
@@ -132,6 +131,7 @@ class App extends React.Component{
 			addItem={this.addItem} 
 			editItem={this.editItem}
 			deleteItem={this.deleteItem}
+			loadEssentials={this.loadEssentials}
 			items={this.state.items} />
 
 			<button
