@@ -1,25 +1,46 @@
 import React from 'react';
+import base from '../base';
 import { getStoreName } from '../helpers';
 
 class StoreChooser extends React.Component{
 	myInput = React.createRef();
+	state = {
+		stores: {}
+	}
 
-	goToStore = (event) => {
-		event.preventDefault();
-		const storeName = this.myInput.current.value;
+	/**********************************************************
+	Save / sync with firebase
+	*/
+	componentDidMount(){
+		this.dbRef = base.syncState('/', {
+			context: this,
+			state: 'stores'
+		});
+	}
+
+	componentWillUnmount(){
+		base.removeBinding(this.dbRef);
+	}
+
+	/**********************************************************
+	Navigate based on button click
+	*/
+	goToStore = (storeName) => {
 		this.props.history.push(`/store/${storeName}`)
 	}
 
 	render(){
 		return (
-			<React.Fragment>
+			<main className="store-chooser">
 			{ /* comment without error */}
 			<h1>What Shopping List are You Listing?</h1>
-			<form onSubmit={this.goToStore}>
-			<input type="text" ref={this.myInput} required defaultValue={getStoreName()} />
-			<button>Go To Store List</button>
-			</form>
-			</React.Fragment>
+			
+			<div className="stores-list">
+			{Object.keys(this.state.stores).map(store => (
+				<button key={store} onClick={() => this.goToStore(store)}>{store}</button>
+			))}
+			</div>
+			</main>
 		)
 	}
 }

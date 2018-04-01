@@ -32,8 +32,6 @@ $c-white: #FFFFFF;
 // Layout & Resets
 
 body{
-	background: $c-peach;
-	background-size: cover;
 	font-family: Roboto, sans-serif;
 	font-weight: 500;
 	color: $c-blue-d;
@@ -57,22 +55,46 @@ select{
 	margin-bottom: .5em;
 }
 
+#main{
+	position: relative;
+}
+
 
 // ==================================================
 // List Page
 
 .list-maker.accord{
-	width: 85%;
+	width: 90%;
 	margin: 1em auto;
+	padding: .5em;
 	display: flex;
+	z-index:0;
+	overflow-x: hidden;
+	min-height: 85vh;
 
 	& > div{
-		flex-basis: 30%;
+		flex-basis: 50%;
 		background: $c-white;
 		border: 8px solid $c-blue-d;
 		margin: .25em;
 		padding: .25em;
 	}
+}
+
+@media screen and (max-width: 490px) {
+	.list-maker.accord{
+		flex-wrap: wrap;
+		flex-direction: row-reverse;
+
+		& > div{
+			flex-basis: 100%;
+		}
+
+		.store-list{
+			order: -1;
+		}
+	}
+	
 }
 
 li.item{
@@ -88,7 +110,7 @@ li.item{
 
 
 // ==================================================
-// Store Order List
+// Store Added Items List
 
 .store-list-item-enter{
 	transform: translateX(-120%);
@@ -113,4 +135,93 @@ li.item{
 		max-height: 0;
 		padding: 0;
 	}
+}
+
+
+
+// ==================================================
+// Store Items Edit Panel 
+
+// Drawer off screen until toggled open
+#drawer{
+	padding: 1em;
+	background: opacify($c-white, .96);
+	z-index: 1;
+	top: 0;
+	
+	// Hidden until toggled open
+	position: fixed;
+	overflow: hidden;
+	right: -10em;
+	width: 0;
+}
+
+// Position of open/close toggle and label
+%toggleposition{
+	position: absolute;
+	bottom: 1em;
+	right: .25em;
+	width: 50px;
+	height: 50px;
+}
+
+#drawer-toggle{
+	@extend %toggleposition;
+	z-index: 2;
+
+	&:checked{
+		bottom: auto;
+		top: 1em;
+	}
+
+	// Overlay when drawer open
+	&:checked ~ label[for="drawer-toggle"]{
+		height: 100%;
+		width: 100%;
+		background: transparentize(black, .5);
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+	}
+
+	// Open drawer
+	&:checked ~ #drawer{
+		position: absolute;
+		left: 3em;
+		right: 0;
+		width: auto;
+	}
+}
+
+label[for="drawer-toggle"]{
+	@extend %toggleposition;
+	z-index: 0;
+
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	// Label
+	// &:before{
+	// 	content: 'Edit Items';
+	// 	display: block;
+	// 	transform: rotate(-90deg);
+	// }
+
+}
+
+
+// ==================================================
+// Back Button
+.back-button{
+	position: absolute;
+	bottom: calc(2em + 70px);
+	right: .25em;
+	width: 50px;
+	height: 50px;
 }

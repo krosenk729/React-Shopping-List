@@ -1,10 +1,10 @@
 import React from 'react';
+import base from '../base';
 import Header from './Header';
 import StoreItems from './StoreItems';
 import StoreList from './StoreList';
 import StoreInventory from './StoreInventory';
 import storeItems from '../sample-items';
-import base from '../base';
 
 class App extends React.Component{
 	/**********************************************************
@@ -106,6 +106,7 @@ class App extends React.Component{
 
 	render(){
 		return (
+			<React.Fragment>
 			<div className="list-maker accord">
 			
 			<div className="all-items">
@@ -123,6 +124,7 @@ class App extends React.Component{
 			storeName={this.state.storeName}
 			list={this.state.list}
 			items={this.state.items} />
+			</div>
 			
 			<StoreInventory 
 			storeName={this.state.storeName}
@@ -130,8 +132,12 @@ class App extends React.Component{
 			editItem={this.editItem}
 			deleteItem={this.deleteItem}
 			items={this.state.items} />
-			
-			</div>
+
+			<button
+			className="back-button"
+			onClick={()=> this.props.history.push('/')}
+			>Back</button>
+			</React.Fragment>
 		)
 	}
 }

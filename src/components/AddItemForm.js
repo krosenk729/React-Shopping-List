@@ -30,7 +30,7 @@ class AddItemForm extends React.Component{
 			<input name="name" ref={this.nameRef} type="text" placeholder="name" />
 			</label>
 			<label>What is a good price?
-			<input name="price" ref={this.priceRef} type="number" placeholder="price" />
+			<input name="price" ref={this.priceRef} type="number" step="0.01" placeholder="price" />
 			</label>
 			<label>Status
 			<select name="status" ref={this.statusRef}>

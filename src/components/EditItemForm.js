@@ -26,8 +26,8 @@ class EditItemForm extends React.Component{
 			<label>Item Name
 			<input name="name" value={this.props.item.name} onChange={this.handleChange} type="text" placeholder="name" />
 			</label>
-			<label>What is a good price?
-			<input name="price" value={this.props.item.price} onChange={this.handleChange} type="number" placeholder="price" />
+			<label>Price
+			<input name="price" value={this.props.item.price} onChange={this.handleChange} type="number" step="0.01" placeholder="price" />
 			</label>
 			<label>Status
 			<select name="status" value={this.props.item.status} onChange={this.handleChange}>

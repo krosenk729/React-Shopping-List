@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,500,900");
 body {
-  background: #FFDBC7;
-  background-size: cover;
   font-family: Roboto, sans-serif;
   font-weight: 500;
   color: #182e4b; }
@@ -21,17 +19,32 @@ select {
   display: block;
   margin-bottom: .5em; }
 
+#main {
+  position: relative; }
+
 .list-maker.accord {
-  width: 85%;
+  width: 90%;
   margin: 1em auto;
-  display: flex; }
+  padding: .5em;
+  display: flex;
+  z-index: 0;
+  overflow-x: hidden;
+  min-height: 85vh; }
   .list-maker.accord > div {
-    flex-basis: 30%;
+    flex-basis: 50%;
     background: #FFFFFF;
     border: 8px solid #182e4b;
     margin: .25em;
     padding: .25em; }
 
+@media screen and (max-width: 490px) {
+  .list-maker.accord {
+    flex-wrap: wrap;
+    flex-direction: row-reverse; }
+    .list-maker.accord > div {
+      flex-basis: 100%; }
+    .list-maker.accord .store-list {
+      order: -1; } }
 li.item {
   width: 100%;
   display: flex;
@@ -66,5 +79,58 @@ li.item {
     transform: translateX(120%);
     max-height: 0;
     padding: 0; }
+
+#drawer {
+  padding: 1em;
+  background: white;
+  z-index: 1;
+  top: 0;
+  position: fixed;
+  overflow: hidden;
+  right: -10em;
+  width: 0; }
+
+#drawer-toggle, label[for="drawer-toggle"] {
+  position: absolute;
+  bottom: 1em;
+  right: .25em;
+  width: 50px;
+  height: 50px; }
+
+#drawer-toggle {
+  z-index: 2; }
+  #drawer-toggle:checked {
+    bottom: auto;
+    top: 1em; }
+  #drawer-toggle:checked ~ label[for="drawer-toggle"] {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+  #drawer-toggle:checked ~ #drawer {
+    position: absolute;
+    left: 3em;
+    right: 0;
+    width: auto; }
+
+label[for="drawer-toggle"] {
+  z-index: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.back-button {
+  position: absolute;
+  bottom: calc(2em + 70px);
+  right: .25em;
+  width: 50px;
+  height: 50px; }
 
 /*# sourceMappingURL=style.css.map */

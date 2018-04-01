@@ -14,7 +14,10 @@ class StoreInventory extends React.Component{
 
 	render(){
 		return (
-			<div className="store-items">
+			<React.Fragment>
+			<input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
+			<label for="drawer-toggle"></label>
+			<div className="store-items drawer" id="drawer">
 			<h4>New {this.props.storeName} item:</h4>
 			<AddItemForm addItem={this.props.addItem} />
 			<h4>Edit {this.props.storeName} items:</h4>
@@ -28,6 +31,8 @@ class StoreInventory extends React.Component{
 				 />
 			))}
 			</div>
+
+			</React.Fragment>
 		)
 	}
 }
