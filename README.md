@@ -1,5 +1,6 @@
 # Katherine's Shopping App
 
+https://katherineshoppinglist.netlify.com/
 
 ### Some Instructions 
 
