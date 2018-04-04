@@ -47,7 +47,7 @@ class EditItemForm extends React.Component{
 			</div>
 			
 			<div className="div-row">
-			<button type="button" className="delete-bttn" onClick={()=>this.props.deleteItem(this.props.index)}><i className="fas fa-trash"></i></button>
+			<button type="button" className="deleter" onClick={()=>this.props.deleteItem(this.props.index)}><i className="fas fa-trash"></i></button>
 			</div>
 
 			</React.Fragment>

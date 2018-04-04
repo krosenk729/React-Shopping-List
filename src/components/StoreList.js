@@ -28,7 +28,9 @@ class StoreList extends React.Component{
 				<li key={i} className="store-list-item">
 				<div className="store-item-title">
 				<h3 className="strike">{item ? item.name : 'Deleted item'}</h3>
-				<div className="img-wrap"><img src={item && item.image ? item.image : null} alt="{item.name}" /></div>
+				<div className="img-wrap">
+				{item && item.image ? <img src={item.image} alt="{item.name}" /> : null}
+				</div>
 				</div>
 				<div className="store-list-actions">
 				<div className="qty">0</div>
@@ -44,7 +46,9 @@ class StoreList extends React.Component{
 				<li key={i} className="store-list-item">
 				<div className="store-item-title">
 				<h3>{item.name}</h3>
-				<div className="img-wrap"><img src={item.image} alt={item.name} /></div>
+				<div className="img-wrap">
+				{item && item.image ? <img src={item.image} alt="{item.name}" /> : null}
+				</div>
 				</div>
 				<div className="store-list-actions">
 				<div className="qty">{qty}</div>

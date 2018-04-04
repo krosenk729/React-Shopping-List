@@ -14,8 +14,7 @@ $col-grey-l: #e5e3e1;
 $col-white: #FFFFFF;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,500,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-@import url('https://fonts.googleapis.com/css?family=Mr+Dafoe|Pinyon+Script|Playfair+Display|Roboto+Slab|Satisfy|Yellowtail');
+@import url('https://fonts.googleapis.com/css?family=Satisfy');
 
 .test-ff-Ro{font-family: 'Roboto Slab', serif;}
 .test-ff-Ye{font-family: 'Yellowtail', cursive;}
@@ -33,7 +32,7 @@ $col-white: #FFFFFF;
 	box-shadow: $horiz $vert $blur $col;
 }
 
-@mixin transition($which: all, $time: 1s, $how: ease-in-out){
+@mixin transition($which: all, $time: 0.5s, $how: ease-in-out){
 	-webkit-transition: $which $time $how;
 	-moz-transition: $which $time $how;
 	-ms-transition: $which $time $how;
@@ -88,6 +87,17 @@ select{
 
 .fancy{
 	color: $col-red-d;
+	font-family: Satisfy;
+	font-weight: bold;
+	font-size: 1.25em;
+}
+
+.extra-fancy{
+	@extend .fancy;
+	font-size: 1.5em;
+	text-decoration: underline;
+	vertical-align: text-top;
+	padding: .1em;
 }
 
 #main{
@@ -369,6 +379,22 @@ li.item{
 		padding: .5em;
 	}
 
+	button{
+		align-self: center;
+		color: $col-white;
+		background: $col-green-l;
+		border: 3px solid $col-green-l;
+		padding: .75em;
+		border-radius: 8px;
+		@include transition;
+
+		&:hover{
+			border-color: $col-green-d;
+			color: $col-green-d;
+			@include boxshadow;
+		}
+	}
+
 	%formGrid{
 		display: flex;
 		flex-wrap: wrap;
@@ -394,10 +420,6 @@ li.item{
 				border-color: $col-green-m;
 			}
 		}
-
-		button[type="submit"]{
-			align-self: center
-		}
 	}
 
 	.add-item-form{
@@ -418,21 +440,24 @@ li.item{
 		width: 85%;
 		position: relative;
 
-		button{
+		button.deleter{
 			position: absolute;
+			padding: 0;
 			right: 0;
 			top: -1.3em;
 			bottom: -1em;
 
-			background: $col-green-l;
+			background: $col-red-l;
 			color: $col-white;
-			border: 2px solid $col-green-l;
+			border: 2px solid $col-red-l;
 			border-radius: 100%;
 			width: 45px;
 			height: 45px;
+			@include transition;
 
 			&:hover{
-				background: $col-green-m;
+				background: $col-red-m;
+				@include boxshadow;
 			}
 		}
 	}
@@ -442,12 +467,27 @@ li.item{
 		padding: 1em;
 		margin-bottom: 2em;
 	}
+
+}
+
+%floatingaction{
+	background: $col-white;
+	color: darken($col-gold-d, 15%);
+	border: 3px solid $col-gold-d;
+	text-align: center;
+	width: 50px;
+	height: 50px;
+	@include transition;
+
+	&:hover{
+		border-color: $col-green-l;
+		color: $col-green-l;
+	}
+
 }
 
 // Position of open/close toggle and label
 %toggleposition{
-	// position: absolute;
-	// right: .25em;
 	position: sticky;
 	left: calc(100% - .25em);
 	bottom: 1em;
@@ -455,9 +495,12 @@ li.item{
 	height: 50px;
 }
 
+
 #drawer-toggle{
 	@extend %toggleposition;
-	z-index: 2;
+	@extend %floatingaction;
+	// z-index: 2;
+	opacity: 0;
 
 	&:checked{
 		position: fixed;
@@ -476,6 +519,14 @@ li.item{
 		left: 0;
 		bottom: 0;
 		right: 0;
+	}
+
+	// Checkbox appearance when drawer open
+	&:checked ~ label[for="drawer-toggle"]::before{
+		content: "\2714";
+		position: absolute;
+		top: 1em;
+		left: .5em;
 	}
 
 	// Open drawer
@@ -507,6 +558,17 @@ label[for="drawer-toggle"]{
 
 }
 
+// Checkbox appearance 
+label[for="drawer-toggle"]::before{
+	@extend %toggleposition;
+	@extend %floatingaction;
+	content: "\270D";
+	font-size: 2.5em;
+	padding: 0 .2em;
+	margin-top: -33px;
+	z-index: 4;
+}
+
 
 // ==================================================
 // Back Button
@@ -516,6 +578,5 @@ label[for="drawer-toggle"]{
 	position: sticky;
 	left: calc(100% - .25em);
 	bottom: calc(2em + 70px);
-	width: 50px;
-	height: 50px;
+	@extend %floatingaction;
 }
