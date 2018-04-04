@@ -315,6 +315,17 @@ li.item{
 		border: 2px solid $col-red-m;
 		background: $col-red-m;
 		color: $col-white;
+
+		&:hover{
+			background: $col-red-d;
+			@include boxshadow;
+		}
+
+		&:active{
+			background: $col-green-m;
+			border-color: $col-green-m;
+			@include boxshadow;
+		}
 	}
 }
 
@@ -338,18 +349,99 @@ li.item{
 // ==================================================
 // Store Items Edit Panel 
 
-// Drawer off screen until toggled open
 #drawer{
-	padding: 1em;
+	// Drawer off screen until toggled open
+	padding: .25em;
 	background: opacify($col-white, .96);
 	z-index: 1;
 	top: 0;
+
 	
 	// Hidden until toggled open
 	position: fixed;
 	overflow: hidden;
 	right: -10em;
 	width: 0;
+
+	h3{
+		color: $col-green-m;
+		font-size: 1.6em;
+		padding: .5em;
+	}
+
+	%formGrid{
+		display: flex;
+		flex-wrap: wrap;
+		margin: .5em;
+		padding: .5em;
+
+		label{
+			flex-basis: 40%;
+			color: $col-green-d;
+			margin: .2em;
+		}
+
+		input, select{
+			margin-top: .5em;
+			border: 0;
+			border-bottom: 2px solid $col-grey-m;
+			color: $col-grey-m;
+			font-weight: 500;
+
+			&:active,
+			&:focus{
+				color: $col-green-m;
+				border-color: $col-green-m;
+			}
+		}
+
+		button[type="submit"]{
+			align-self: center
+		}
+	}
+
+	.add-item-form{
+		@extend %formGrid;
+		padding: 1em;
+		@include boxshadow;
+	}
+
+	.edit-item-form{
+		@extend %formGrid;
+	}
+
+	.div-row{
+		margin-bottom: 2.5em;
+		margin-left: .7em;
+		padding: 0;
+		border: 1px solid $col-green-l;
+		width: 85%;
+		position: relative;
+
+		button{
+			position: absolute;
+			right: 0;
+			top: -1.3em;
+			bottom: -1em;
+
+			background: $col-green-l;
+			color: $col-white;
+			border: 2px solid $col-green-l;
+			border-radius: 100%;
+			width: 45px;
+			height: 45px;
+
+			&:hover{
+				background: $col-green-m;
+			}
+		}
+	}
+
+	.preload{
+		text-align: center;
+		padding: 1em;
+		margin-bottom: 2em;
+	}
 }
 
 // Position of open/close toggle and label
@@ -389,9 +481,16 @@ li.item{
 	// Open drawer
 	&:checked ~ #drawer{
 		position: absolute;
-		left: 3em;
+		left: 7em;
 		right: 0;
 		width: auto;
+
+		@media screen and (max-width: 680px){
+			left: 3em;
+		}
+		@media screen and (max-width: 500px){
+			left: 1em;
+		}
 	}
 }
 
@@ -405,13 +504,6 @@ label[for="drawer-toggle"]{
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	
-	// Label
-	// &:before{
-	// 	content: 'Edit Items';
-	// 	display: block;
-	// 	transform: rotate(-90deg);
-	// }
 
 }
 

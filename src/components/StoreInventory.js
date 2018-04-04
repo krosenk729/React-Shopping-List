@@ -21,10 +21,10 @@ class StoreInventory extends React.Component{
 			
 			<div className="store-items drawer" id="drawer">
 			
-			<h4>New {this.props.storeName} item:</h4>
+			<h3>New {this.props.storeName} item:</h3>
 			<AddItemForm className="inventory-form" addItem={this.props.addItem} />
 			
-			<h4>Edit Favorite {this.props.storeName} Items:</h4>
+			<h3>Edit Favorite {this.props.storeName} Items:</h3>
 			{Object.keys(this.props.items).map(i => (
 				<EditItemForm 
 				className="inventory-form"
@@ -36,9 +36,10 @@ class StoreInventory extends React.Component{
 				 />
 			))}
 			
-			<h4>Pre-Load With The Basic Essentials</h4>
+			<h3>Pre-Load With The Basic Essentials</h3>
+			<div className="preload">
 			<button className="essentials-button" onClick={this.props.loadEssentials}>Load Some Essentials</button>
-			
+			</div>
 			</div>
 			
 			</React.Fragment>

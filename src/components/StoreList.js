@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types'; 
-import { formatPrice } from '../helpers';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 class StoreList extends React.Component{
@@ -77,7 +76,7 @@ class StoreList extends React.Component{
 			<TransitionGroup component="ul">
 			{itemIds.map(this.renderListItem)}
 			</TransitionGroup>
-			<h3 className="total">Total for trip: <span className="fancy">{total}</span> ish</h3>
+			<h3 className="total">Total for trip: $<span className="fancy">{total}</span> ish</h3>
 			</div>
 			)
 		}

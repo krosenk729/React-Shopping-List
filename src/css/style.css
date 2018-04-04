@@ -211,6 +211,15 @@ li.item {
     border: 2px solid #E02B31;
     background: #E02B31;
     color: #FFFFFF; }
+    .store-list-actions > button:hover {
+      background: #BB3A3E;
+      -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+    .store-list-actions > button:active {
+      background: #14675e;
+      border-color: #14675e;
+      -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
 .store-item-title {
   flex-basis: 100%;
@@ -224,7 +233,7 @@ li.item {
       height: auto; }
 
 #drawer {
-  padding: 1em;
+  padding: .25em;
   background: white;
   z-index: 1;
   top: 0;
@@ -232,6 +241,58 @@ li.item {
   overflow: hidden;
   right: -10em;
   width: 0; }
+  #drawer h3 {
+    color: #14675e;
+    font-size: 1.6em;
+    padding: .5em; }
+  #drawer .add-item-form, #drawer .edit-item-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: .5em;
+    padding: .5em; }
+    #drawer .add-item-form label, #drawer .edit-item-form label {
+      flex-basis: 40%;
+      color: #0b421a;
+      margin: .2em; }
+    #drawer .add-item-form input, #drawer .edit-item-form input, #drawer .add-item-form select, #drawer .edit-item-form select {
+      margin-top: .5em;
+      border: 0;
+      border-bottom: 2px solid #b2adaa;
+      color: #b2adaa;
+      font-weight: 500; }
+      #drawer .add-item-form input:active, #drawer .edit-item-form input:active, #drawer .add-item-form input:focus, #drawer .edit-item-form input:focus, #drawer .add-item-form select:active, #drawer .edit-item-form select:active, #drawer .add-item-form select:focus, #drawer .edit-item-form select:focus {
+        color: #14675e;
+        border-color: #14675e; }
+    #drawer .add-item-form button[type="submit"], #drawer .edit-item-form button[type="submit"] {
+      align-self: center; }
+  #drawer .add-item-form {
+    padding: 1em;
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+  #drawer .div-row {
+    margin-bottom: 2.5em;
+    margin-left: .7em;
+    padding: 0;
+    border: 1px solid #C9DCD1;
+    width: 85%;
+    position: relative; }
+    #drawer .div-row button {
+      position: absolute;
+      right: 0;
+      top: -1.3em;
+      bottom: -1em;
+      background: #C9DCD1;
+      color: #FFFFFF;
+      border: 2px solid #C9DCD1;
+      border-radius: 100%;
+      width: 45px;
+      height: 45px; }
+      #drawer .div-row button:hover {
+        background: #14675e; }
+  #drawer .preload {
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 2em; }
 
 #drawer-toggle, label[for="drawer-toggle"] {
   position: sticky;
@@ -258,9 +319,15 @@ li.item {
     right: 0; }
   #drawer-toggle:checked ~ #drawer {
     position: absolute;
-    left: 3em;
+    left: 7em;
     right: 0;
     width: auto; }
+    @media screen and (max-width: 680px) {
+      #drawer-toggle:checked ~ #drawer {
+        left: 3em; } }
+    @media screen and (max-width: 500px) {
+      #drawer-toggle:checked ~ #drawer {
+        left: 1em; } }
 
 label[for="drawer-toggle"] {
   z-index: 0;

@@ -23,6 +23,8 @@ class EditItemForm extends React.Component{
 
 	render(){
 		return (
+			<React.Fragment>
+
 			<div className="edit-item-form">
 			<label>Item Name
 			<input name="name" value={this.props.item.name} onChange={this.handleChange} type="text" placeholder="name" />
@@ -42,8 +44,13 @@ class EditItemForm extends React.Component{
 			<label>Image Source
 			<input name="image" value={this.props.item.image} onChange={this.handleChange} type="text" placeholder="img" />
 			</label>
-			<button type="button" className="delete-bttn" onClick={()=>this.props.deleteItem(this.props.index)}>Remove</button>
 			</div>
+			
+			<div className="div-row">
+			<button type="button" className="delete-bttn" onClick={()=>this.props.deleteItem(this.props.index)}><i className="fas fa-trash"></i></button>
+			</div>
+
+			</React.Fragment>
 			)
 		}
 	}
