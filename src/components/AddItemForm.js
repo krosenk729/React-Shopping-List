@@ -10,6 +10,7 @@ class AddItemForm extends React.Component{
 	priceRef = React.createRef();
 	statusRef = React.createRef();
 	imageRef = React.createRef();
+	sizeRef = React.createRef();
 
 	createItem = (event) => {
 		event.preventDefault();

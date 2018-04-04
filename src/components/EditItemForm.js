@@ -7,7 +7,8 @@ class EditItemForm extends React.Component{
 			name: PropTypes.string,
 			price: PropTypes.isRequired,
 			image: PropTypes.string,
-			status: PropTypes.string
+			status: PropTypes.string,
+			size: PropTypes.string
 		}),
 		index: PropTypes.string.isRequired,
 		editItem: PropTypes.func.isRequired,
@@ -28,6 +29,9 @@ class EditItemForm extends React.Component{
 			</label>
 			<label>Price
 			<input name="price" value={this.props.item.price} onChange={this.handleChange} type="number" step="0.01" placeholder="price" />
+			</label>
+			<label>Size
+			<input name="size" value={this.props.item.size} onChange={this.handleChange} type="text" />
 			</label>
 			<label>Status
 			<select name="status" value={this.props.item.status} onChange={this.handleChange}>

@@ -7,23 +7,24 @@ class Item extends React.Component{
 			image: PropTypes.string,
 			name: PropTypes.string,
 			price: PropTypes.isRequired,
-			status: PropTypes.string
+			status: PropTypes.string,
+			size: PropTypes.string
 		}),
 		addToList: PropTypes.func
 	}
 
 	render(){
-		const {image, name, price, status} = this.props.details;
-		const needIt = status === 'need'
+		const {image, name, size, price, status} = this.props.details;
+		const haveIt = status === 'have'
 		return (
 			<li className="item">
 				<button type="button" 
 				className="add-item-button" 
-				disabled={!needIt} 
+				disabled={haveIt} 
 				onClick={()=> this.props.addToList(this.props.index)}
 				>
 				<img src={image} alt={name} />
-				{needIt ? "Add to List" : "Already Have It 🙅"}
+				{haveIt ? "Already Have It 🙅" : "Add to List"}
 				</button>
 				<div className="item-desc">
 				<h3>{name} : {status}</h3>

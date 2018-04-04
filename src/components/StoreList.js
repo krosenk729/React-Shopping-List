@@ -45,7 +45,7 @@ class StoreList extends React.Component{
 				<li key={i} className="store-list-item">
 				<div className="list-title-group">
 				<h3>{item.name}</h3>
-				<p>shop for {qty}</p>
+				<p>shop for {qty} | ${item.price} ish each</p>
 				</div>
 				<div className="list-button-group">
 				<div><img src={item.image} /></div>
@@ -72,11 +72,11 @@ class StoreList extends React.Component{
 			}, 0);
 			return (
 			<div className="store-list">
-			<h2>Shopping List for {this.props.storeName}</h2>
+			<h2 className="center">Shopping List <br /> for {this.props.storeName}</h2>
 			<TransitionGroup component="ul">
 			{itemIds.map(this.renderListItem)}
 			</TransitionGroup>
-			<p>Expect to pay {formatPrice(total)} ish</p>
+			<p className="center">Expect to pay {formatPrice(total)} ish</p>
 			</div>
 			)
 		}
