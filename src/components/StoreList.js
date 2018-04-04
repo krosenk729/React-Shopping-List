@@ -48,7 +48,7 @@ class StoreList extends React.Component{
 				<p>shop for {qty} | ${item.price} ish each</p>
 				</div>
 				<div className="list-button-group">
-				<div><img src={item.image} /></div>
+				<div><img src={item.image} alt="{item.name}" /></div>
 				<button className="up" onClick={()=> this.props.addToList(i)}><span role="img" aria-label="change quantity">🔺</span></button>
 				<button className="down" onClick={()=> this.props.decreaseList(i)}><span role="img" aria-label="change quantity">🔻</span></button>
 				<button className="del" onClick={()=> this.props.removeFromList(i)}><span role="img" aria-label="change quantity">⛔</span></button>

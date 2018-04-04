@@ -67,8 +67,8 @@ select {
     .store-chooser button:hover {
       background: #FFFFFF;
       color: #E02B31;
-      -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
+      -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
 
 .list-maker.accord {
   width: 90%;
@@ -98,14 +98,41 @@ li.item {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  li.item img {
-    width: 80%;
-    height: auto; }
   li.item .add-item-button {
     flex-basis: 30%;
-    background: transparent;
-    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); }
+    background-color: transparent;
+    background-position: center;
+    background-size: cover;
+    height: 110px;
+    width: 50px;
+    margin: .65em;
+    border: none;
+    -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+    li.item .add-item-button > div {
+      display: inline;
+      background: #ef9594;
+      border: 4px solid #ef9594;
+      border-radius: 100%;
+      padding: .45em;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      -ms-transition: all 0.5s ease-in-out;
+      -o-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      -webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6); }
+    li.item .add-item-button:hover {
+      border: 2px solid #14675e; }
+      li.item .add-item-button:hover > div {
+        background: #14675e;
+        border-color: #14675e; }
+    li.item .add-item-button:active {
+      border: 2px solid #14675e; }
+      li.item .add-item-button:active > div {
+        background: #14675e;
+        border-color: #14675e;
+        padding: 2.5em; }
   li.item .item-desc {
     padding: .5em;
     flex-basis: 65%; }

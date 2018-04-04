@@ -15,16 +15,20 @@ class Item extends React.Component{
 
 	render(){
 		const {image, name, size, price, status} = this.props.details;
-		const haveIt = status === 'have'
+		const haveIt = status === 'have';
+		const bgImage = image || "/images/placeholder.png";
+		const buttonBg = {backgroundImage: `url(${bgImage})`}
 		return (
 			<li className="item">
 				<button type="button" 
 				className="add-item-button" 
 				disabled={haveIt} 
 				onClick={()=> this.props.addToList(this.props.index)}
+				style={buttonBg}
 				>
-				<img src={image} alt={name} />
-				{haveIt ? "Already Have It 🙅" : "Add to List"}
+				<div>
+				{haveIt ? "🙅" : "➕"}
+				</div>
 				</button>
 				<div className="item-desc">
 				<h3>{name} : {status}</h3>
