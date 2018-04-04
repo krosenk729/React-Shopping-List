@@ -16,46 +16,47 @@ class StoreList extends React.Component{
 		const item = this.props.items[i];
 		if(!item) return null; 
 
-		const qty = this.props.list[i];
-		const isNeeded = item.status === 'need';
-
+		const haveIt = item.status === 'have';
 		const transitionOptions = {
 			classNames: "store-list-item", 
 			key: i,
 			timeout: {enter: 500, exit: 500}
 		};
 
-		if(!isNeeded){
+		if(haveIt){
 			return(
 				<CSSTransition {...transitionOptions}>
 				<li key={i} className="store-list-item">
-				<div className="list-title-group">
-				<h4>{item ? item.name : 'Deleted item'}</h4>
-				<p>shop for 0!</p>
+				<div className="store-item-title">
+				<h3 className="strike">{item ? item.name : 'Deleted item'}</h3>
+				<div className="img-wrap"><img src={item && item.image ? item.image : null} alt="{item.name}" /></div>
 				</div>
-				<div className="list-button-group">
-				<button className="del" onClick={()=> this.props.removeFromList(i)}><span role="img" aria-label="change quantity">⛔</span></button>
+				<div className="store-list-actions">
+				<div className="qty">0</div>
+				<button className="del" onClick={()=> this.props.removeFromList(i)}><i className="fas fa-minus" role="img" aria-label="remove from list"></i></button>
 				</div>
 				</li>
 				</CSSTransition>
 				)
-			} else {
-				return(
+		} else {
+			const qty = this.props.list[i];
+			return(
 				<CSSTransition {...transitionOptions}>
 				<li key={i} className="store-list-item">
-				<div className="list-title-group">
+				<div className="store-item-title">
 				<h3>{item.name}</h3>
-				<p>shop for {qty} | ${item.price} ish each</p>
+				<div className="img-wrap"><img src={item.image} alt={item.name} /></div>
 				</div>
-				<div className="list-button-group">
-				<div><img src={item.image} alt="{item.name}" /></div>
-				<button className="up" onClick={()=> this.props.addToList(i)}><span role="img" aria-label="change quantity">🔺</span></button>
-				<button className="down" onClick={()=> this.props.decreaseList(i)}><span role="img" aria-label="change quantity">🔻</span></button>
-				<button className="del" onClick={()=> this.props.removeFromList(i)}><span role="img" aria-label="change quantity">⛔</span></button>
+				<div className="store-list-actions">
+				<div className="qty">{qty}</div>
+				<div className="price">${item.price}ish</div>
+				<button className="up" onClick={()=> this.props.addToList(i)}><i className="fas fa-chevron-up" role="img" aria-label="increase quantity"></i></button>
+				<button className="down" onClick={()=> this.props.decreaseList(i)}><i className="fas fa-chevron-down" role="img" aria-label="decrease quantity"></i></button>
+				<button className="del" onClick={()=> this.props.removeFromList(i)}><i className="fas fa-minus" role="img" aria-label="remove from list"></i></button>
 				</div>
 				</li>
 				</CSSTransition>
-				)
+			)
 			}
 		}
 
@@ -76,7 +77,7 @@ class StoreList extends React.Component{
 			<TransitionGroup component="ul">
 			{itemIds.map(this.renderListItem)}
 			</TransitionGroup>
-			<p className="center">Expect to pay {formatPrice(total)} ish</p>
+			<h3 className="total">Total for trip: <span className="fancy">{total}</span> ish</h3>
 			</div>
 			)
 		}

@@ -108,6 +108,7 @@ class App extends React.Component{
 	render(){
 		return (
 			<React.Fragment>
+
 			<div className="list-maker accord">
 			
 			<div className="all-items">
@@ -124,8 +125,15 @@ class App extends React.Component{
 			storeName={this.state.storeName}
 			list={this.state.list}
 			items={this.state.items} />
+			
 			</div>
 			
+
+			<button
+			className="back-button"
+			onClick={()=> this.props.history.push('/')}
+			><i className="fas fa-backward"></i></button>
+
 			<StoreInventory 
 			storeName={this.state.storeName}
 			addItem={this.addItem} 
@@ -134,10 +142,6 @@ class App extends React.Component{
 			loadEssentials={this.loadEssentials}
 			items={this.state.items} />
 
-			<button
-			className="back-button"
-			onClick={()=> this.props.history.push('/')}
-			>Back</button>
 			</React.Fragment>
 		)
 	}

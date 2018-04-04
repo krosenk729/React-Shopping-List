@@ -27,12 +27,13 @@ class Item extends React.Component{
 				style={buttonBg}
 				>
 				<div>
-				{haveIt ? "🙅" : "➕"}
+				{haveIt ? "🙅" : <i className="fas fa-plus"></i>}
 				</div>
 				</button>
 				<div className="item-desc">
-				<h3>{name} : {status}</h3>
-				<p>Avg price: {price}</p>
+				<h4>{name} <span className="fancy">{status}</span></h4>
+				{price ? <p>Avg price: ${price}ish</p> : ""}
+				{size ? <p>Size: ${size}</p> : ""}
 				</div>
 			</li>
 		)

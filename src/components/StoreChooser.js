@@ -1,6 +1,5 @@
 import React from 'react';
 import base from '../base';
-import { getStoreName } from '../helpers';
 
 class StoreChooser extends React.Component{
 	myInput = React.createRef();

@@ -14,6 +14,16 @@ $col-grey-l: #e5e3e1;
 $col-white: #FFFFFF;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,500,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Mr+Dafoe|Pinyon+Script|Playfair+Display|Roboto+Slab|Satisfy|Yellowtail');
+
+.test-ff-Ro{font-family: 'Roboto Slab', serif;}
+.test-ff-Ye{font-family: 'Yellowtail', cursive;}
+.test-ff-Mr{font-family: 'Mr Dafoe', cursive;}
+.test-ff-Pi{font-family: 'Pinyon Script', cursive;}
+.test-ff-Pl{font-family: 'Playfair Display', serif;}
+.test-ff-Sa{font-family: 'Satisfy', cursive;}
+
 
 // ==================================================
 // Mixins
@@ -52,11 +62,15 @@ body{
 	color: $col-green-d;
 }
 
-h1, h2, h3, h4, h5, h6, label, input, select, option, textarea{
+h1, h2, h3, h4, h5, h6, p, label, input, select, option, textarea{
 	font-family: Roboto, sans-serif;
 	font-weight: 300;
 	line-height: 1.2;
 	padding-bottom: .25em;
+}
+
+h4, h5, h6{
+	font-weight: 500;
 }
 
 ul{
@@ -72,30 +86,22 @@ select{
 	margin-bottom: .5em;
 }
 
-/* button{
-	padding: .75em;
-	margin: .25em;
-	border-radius: 5px;
-	border: 4px solid $col-red-m;
-	background: $col-red-m;
-	color: $col-white;
-
-	&:hover{
-		background: $col-white;
-		color: $col-red-m;
-		@include boxshadow;
-	}
-} */
+.fancy{
+	color: $col-red-d;
+}
 
 #main{
 	position: relative;
+	min-width: 450px;
 }
 
 .center{
 	text-align: center;
 }
 
-
+.strike{
+	text-decoration: line-through;
+}
 
 // ==================================================
 // Store Chooser Page
@@ -136,7 +142,7 @@ select{
 }
 
 // ==================================================
-// List Page
+// List Page Layout
 
 .list-maker.accord{
 	width: 90%;
@@ -182,12 +188,13 @@ li.item{
 	align-items: center;
 
 	.add-item-button{
-		flex-basis: 30%;
+		flex-grow: 1;
+		flex-shrink: 0;
 		background-color: transparent;
 		background-position: center;
 		background-size: cover;
 		height: 110px;
-		width: 50px;
+		width: 110px;
 		margin: .65em;
 		border: none;
 		@include boxshadow;
@@ -195,10 +202,11 @@ li.item{
 		// inner button
 		& > div{
 			display: inline;
+			color: $col-white;
 			background: $col-red-l;
 			border: 4px solid $col-red-l;
 			border-radius: 100%;
-			padding: .45em;
+			padding: .4em .5em;
 			@include transition($time: 0.5s);
 			@include boxshadow($blur: 3px, $col: rgba(0, 0, 0, 0.6));
 		}
@@ -218,7 +226,7 @@ li.item{
 			& > div{
 				background: $col-green-m;
 				border-color: $col-green-m;
-				padding: 2.5em;
+				padding: 3.5em 3.6em;
 			}
 		}
 	}
@@ -262,13 +270,19 @@ li.item{
 
 // Styles
 
-.store-list h2{
-	font-size: 1.5em;
-	font-weight: 100;
+.store-list{
+	h2{
+		font-size: 1.5em;
+		font-weight: 100;
+	}
+	.total{
+		margin: 1em .25em;
+		padding: 1em .25em;
+	}
 }
 
 .store-list-item{
-	margin: 2em .25em;
+	margin: 1em .25em;
 	padding: 1em .25em;
 	border-top: 2px solid $col-gold-l;
 
@@ -281,12 +295,43 @@ li.item{
 	}
 }
 
-.list-button-group{
+.store-list-actions{
 	display: flex;
 
-	img{
-		width: 45px;
-		height: auto;
+	%actionBox{
+		padding: .75em;
+		flex-basis: 15%;
+		margin: 5px;
+		text-align: center;
+	}
+
+	& > div{
+		@extend %actionBox;
+		border: 2px solid $col-red-m;
+	}
+
+	& > button{
+		@extend %actionBox;
+		border: 2px solid $col-red-m;
+		background: $col-red-m;
+		color: $col-white;
+	}
+}
+
+
+.store-item-title {
+	flex-basis: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.img-wrap{
+		flex-basis: 20%;
+
+		img{ 
+			width: 100%; 
+			height: auto;
+		}
 	}
 }
 
@@ -309,9 +354,11 @@ li.item{
 
 // Position of open/close toggle and label
 %toggleposition{
-	position: absolute;
+	// position: absolute;
+	// right: .25em;
+	position: sticky;
+	left: calc(100% - .25em);
 	bottom: 1em;
-	right: .25em;
 	width: 50px;
 	height: 50px;
 }
@@ -323,7 +370,8 @@ li.item{
 	&:checked{
 		position: fixed;
 		bottom: auto;
-		top: 1em;
+		top: 1.2em;
+		left: calc(100% - 55px);
 	}
 
 	// Overlay when drawer open
@@ -371,9 +419,11 @@ label[for="drawer-toggle"]{
 // ==================================================
 // Back Button
 .back-button{
-	position: absolute;
+	// position: absolute;
+	// right: .25em;
+	position: sticky;
+	left: calc(100% - .25em);
 	bottom: calc(2em + 70px);
-	right: .25em;
 	width: 50px;
 	height: 50px;
 }

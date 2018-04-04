@@ -2,8 +2,8 @@
 
 ### Some To Dos for me 
 + BETTER WAY to store prices as a float
-+ Header & StoreItems | StoreList | StoreInventory
-+ Header & fishes | Order | Inventory
++ back button wrap under drawer toggle
++ drawer toggle icon
 
 ### Some Instructions 
 
