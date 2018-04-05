@@ -27,7 +27,6 @@ class App extends React.Component{
 	componentDidMount(){
 		const localList = localStorage.getItem(this.state.storeName);
 		if(localList){
-			console.log(localList);
 			this.setState({list: JSON.parse(localList)});
 		}
 		this.dbRef = base.syncState(`${this.state.storeName}/items`, {
@@ -45,7 +44,6 @@ class App extends React.Component{
 	*/
 	componentDidUpdate(){
 		localStorage.setItem(this.state.storeName, JSON.stringify(this.state.list));
-		console.log('updated', this.state.list);
 	}
 
 	/**********************************************************

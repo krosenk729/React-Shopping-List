@@ -14,7 +14,6 @@ class AddItemForm extends React.Component{
 
 	createItem = (event) => {
 		event.preventDefault();
-		console.log(event);
 		const item = {
 			name: this.nameRef.current ? this.nameRef.current.value : event.target.name.value,
 			price: parseFloat(this.priceRef.current ? this.priceRef.current.value : event.target.price.value),
