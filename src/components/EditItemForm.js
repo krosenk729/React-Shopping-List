@@ -17,7 +17,8 @@ class EditItemForm extends React.Component{
 
 	handleChange = (event) => {
 		const updatedItem = {...this.props.item};
-		updatedItem[event.currentTarget.name] = event.currentTarget.value;
+		const eventItem = event.currentTarget ? event.currentTarget : event.target;
+		updatedItem[eventItem.name] = eventItem.value;
 		this.props.editItem(this.props.index, updatedItem);
 	}
 

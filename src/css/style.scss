@@ -16,14 +16,6 @@ $col-white: #FFFFFF;
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,500,900');
 @import url('https://fonts.googleapis.com/css?family=Satisfy');
 
-.test-ff-Ro{font-family: 'Roboto Slab', serif;}
-.test-ff-Ye{font-family: 'Yellowtail', cursive;}
-.test-ff-Mr{font-family: 'Mr Dafoe', cursive;}
-.test-ff-Pi{font-family: 'Pinyon Script', cursive;}
-.test-ff-Pl{font-family: 'Playfair Display', serif;}
-.test-ff-Sa{font-family: 'Satisfy', cursive;}
-
-
 // ==================================================
 // Mixins
 
@@ -537,10 +529,7 @@ li.item{
 		width: auto;
 
 		@media screen and (max-width: 680px){
-			left: 3em;
-		}
-		@media screen and (max-width: 500px){
-			left: 1em;
+			left: 6em;
 		}
 	}
 }

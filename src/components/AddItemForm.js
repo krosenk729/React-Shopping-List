@@ -14,31 +14,32 @@ class AddItemForm extends React.Component{
 
 	createItem = (event) => {
 		event.preventDefault();
+		console.log(event);
 		const item = {
-			name: this.nameRef.current.value,
-			price: parseFloat(this.priceRef.current.value),
-			status: this.statusRef.current.value,
-			image: this.imageRef.current.value
+			name: this.nameRef.current ? this.nameRef.current.value : event.target.name.value,
+			price: parseFloat(this.priceRef.current ? this.priceRef.current.value : event.target.price.value),
+			status: this.statusRef.current ? this.statusRef.current.value : event.target.status.value,
+			image: this.imageRef.current ? this.imageRef.current.value : event.target.image.value
 		}
 		this.props.addItem(item);
-		event.currentTarget.reset();
+		event.target.reset();
 	}
 
 	render(){
 		return (
 			<form className="add-item-form" onSubmit={this.createItem}>
 			<label>Item Name
-			<input name="name" ref={this.nameRef} type="text" placeholder="name" />
+			<input name="name" ref={this.nameRef} type="text" placeholder="Item Name" />
 			</label>
 			<label>Price
-			<input name="price" ref={this.priceRef} type="number" step="0.01" placeholder="price" />
+			<input name="price" ref={this.priceRef} type="number" step="0.01" placeholder="0.01" />
 			</label>
 			<label>Size
 			<input name="size" ref={this.sizeRef} type="text" />
 			</label>
 			<label>Status
 			<select name="status" ref={this.statusRef}>
-			<option value="need">Need it! Buy away</option>
+			<option value="need" selected="true">Need it! Buy away</option>
 			<option value="have">Have it! No need to buy</option>
 			</select>
 			</label>
