@@ -18,6 +18,7 @@ class AddItemForm extends React.Component{
 			name: this.nameRef.current ? this.nameRef.current.value : event.target.name.value,
 			price: parseFloat(this.priceRef.current ? this.priceRef.current.value : event.target.price.value),
 			status: this.statusRef.current ? this.statusRef.current.value : event.target.status.value,
+			size:  this.sizeRef.current ? this.sizeRef.current.value : event.target.size.value,
 			image: this.imageRef.current ? this.imageRef.current.value : event.target.image.value
 		}
 		this.props.addItem(item);
